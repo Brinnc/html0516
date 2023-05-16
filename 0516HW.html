@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무지개팔레트</title>
+    <style>
+        #wrapper {
+            width: 1000px;
+            height: 700px;
+            background: black;
+            margin: auto;
+
+        }
+
+        #header {
+            width: 100%;
+            height: 50px;
+            background: white;
+            text-align: center;
+
+        }
+
+        #content {
+            width: 100%;
+            height: 650px;
+        }
+
+        button {
+            border: 0px;
+            font-size: 35px;
+            border-radius: 10px;
+        }
+
+        #bt1 {
+            background: red;
+        }
+
+        #bt2 {
+            background: orange;
+        }
+
+        #bt3 {
+            background: yellow;
+        }
+
+        #bt4 {
+            background: green;
+        }
+
+        #bt5 {
+            background: blue;
+        }
+
+        #bt6 {
+            background: navy;
+        }
+
+        #bt7 {
+            background: purple;
+        }
+    </style>
+
+    <script>
+        //let content=document.getElementById("content");
+
+        function init() {
+
+            let bt1 = document.getElementById("bt1");
+            bt1.addEventListener("click", function () {
+                alert("빨강?");
+                //content div에 배경색을 빨간색으로
+                document.getElementById("content");
+                content.style.background = "red";
+            });
+
+            let bt2 = document.getElementById("bt2");
+            bt2.addEventListener("click", function () {
+                alert("주황?");
+                //content div에 배경색을 주황색으로
+                document.getElementById("content");
+                content.style.background = "orange";
+            });
+
+            let bt3 = document.getElementById("bt3");
+            bt3.addEventListener("click", function () {
+                alert("노랑?");
+                //content div에 배경색을 노랑색으로
+                document.getElementById("content");
+                content.style.background = "yellow";
+            });
+
+            let bt4 = document.getElementById("bt4");
+            bt4.addEventListener("click", function () {
+                alert("초록?");
+                //content div에 배경색을 초록색으로
+                document.getElementById("content");
+                content.style.background = "green";
+            });
+
+            let bt5 = document.getElementById("bt5");
+            bt5.addEventListener("click", function () {
+                alert("파랑?");
+                //content div에 배경색을 파랑색으로
+                document.getElementById("content");
+                content.style.background = "blue";
+            });
+
+            let bt6 = document.getElementById("bt6");
+            bt6.addEventListener("click", function () {
+                alert("남색?");
+                //content div에 배경색을 남색으로
+                document.getElementById("content");
+                content.style.background = "navy";
+            });
+
+            let bt7 = document.getElementById("bt7");
+            bt7.addEventListener("click", function () {
+                alert("보라?");
+                //content div에 배경색을 보라색으로
+                document.getElementById("content");
+                content.style.background = "purple";
+            });
+        }
+
+
+    </script>
+</head>
+
+<body onLoad="init()">
+    <div id="wrapper">
+        <div id="header">
+            <button id="bt1">RED</button>
+            <button id="bt2">ORANGE</button>
+            <button id="bt3">YELLOW</button>
+            <button id="bt4">GREEN</button>
+            <button id="bt5">BLUE</button>
+            <button id="bt6">NAVY</button>
+            <button id="bt7">PURPLE</button>
+        </div>
+        <div id="content"></div>
+    </div>
+</body>
+
+</html>

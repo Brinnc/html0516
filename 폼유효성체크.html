@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼유효성체크_회원가입</title>
+    <style>
+        #wrapper {
+            width: 400px;
+            border: 2px solid #ccc;
+            /*cccccc*/
+            margin: auto;
+
+        }
+
+        input,
+        button {
+            width: 95%;
+            font-size: 20px;
+            margin: 3px;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+    <script>
+        //on~ 시작하는 모든 html의 이벤트 핸들러는 js에서 구현이 가능함.
+        //onLosd도 js코드에서 이벤트 연결을 시도해보자
+
+        //html에서의 body onLoad=""와 동일함
+        window.addEventListener("load", function () {
+            //alert("문서로드완료");
+            //문서 내의 버튼에 클릭 이벤트 연결
+            let bt = document.querySelector("button");
+            bt.addEventListener("click", function () {
+                //alert("나눌렀냐?");
+                checkValue();
+            });
+        });
+
+        //회원가입양식을 이루고 있는 UI컴포넌트에 적절한 데이터를 사용자들이 입력했는지를 
+        //체크하는 업무를 유효성체크라함.
+        function checkValue() {
+            //아이디에 아무것도 입력하지 않았을 경우 사용자에게 꼽주자
+            //문서 내의 name이 'id'인 요소의 입력값이 비어있을 경우, 꼽
+            //지금까지는 documet.get~ 유형으로 문서 내 요소에 접근해왔으나 꼭 이 방법만 지원되는 것은 아님
+            //요소들 간의 부모, 자식 간의 위계관계로도 접근 가능함.
+            if (form1.id.value == "") {
+                alert("야! ID를 입력해라!");
+                form1.id.focus(); //커서 올려놓기
+            }else if(form1.pwd.value==""){
+                alert("비번입력해라");
+                form1.pwd.focus();
+            }else if(form1.pwd.value!=form1.pwd2.value){
+                alert("비번이다름\n확인해라");   
+                form1.pwd2.value=""; //기존데이터초기화 ""
+                form1.pwd2.focus();
+            }else if(form1.name.value==""){
+                alert("이름입력해라");
+                form1.name.focus();
+            }else{
+            //서버로 입력한 양식의 데이터를 전송함
+            form1.action="http://naver.com"; //전송할 주소
+            form1.submit(); //전송되는 시점!! (여기서전송)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 
+            컨트롤+슬러쉬(/): 주석 단축키임
+            회원가입 양식과 같이 UI컨트롤들의 사용목적은 웹브라우저 이용자가 무언가를 입력한 후,
+            결국 서버로 전송함이 주목적인데, 
+            이때 UI컴포넌트들 중 어디서부터 어디까지를 전송할지 그 범위를 결정지을 수 있는
+            양식 태그를 가리켜 폼(form) 태그라 함.
+            form태그는 범위만 지정할 뿐, 눈에 보이지 않음.
+        -->
+
+        <!-- 
+            id와 name의 공통점과 차이점
+            공통점: 둘다 문서내의 요소간의 구분
+            차이점: id는 중복 불허, name은 중복 가능
+            특히 name은 서버에 전송할 때 변수 역할을 수행해줌
+            즉, 입력한 데이터가 담겨지는 단위(전송파라미터)
+         -->
+        <form name="form1">
+            <div>
+                <input type="text" name="id" placeholder="ID를 입력해">
+            </div>
+            <div>
+                <input type="password" name="pwd" maxlength="12" placeholder="PW를 입력해">
+            </div>
+            <div>
+                <input type="password" name="pwd2" maxlength="12" placeholder="PW를 확인해">
+            </div>
+            <div>
+                <input type="text" name="name" placeholder="이름을 입력해">
+            </div>
+
+
+            <div>
+                <!-- html5 버튼을 폼 태그에 넣으면 자동 전송 기능이 숨어있기때문에 페이지가 새로고침됨. -->
+                <button type="button">회원가입</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
